@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #282c34;
+      overflow: hidden;
+    }
+
+    #slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    #slide1:checked ~ #slider { transform: translateX(0); }
+    #slide2:checked ~ #slider { transform: translateX(-100%); }
+    #slide3:checked ~ #slider { transform: translateX(-200%); }
+
+    .slides {
+      display: flex;
+      width: 300%; /* Số lượng slide * 100% */
+    }
+
+    #slide1:checked ~ #controls label:nth-child(1),
+    #slide2:checked ~ #controls label:nth-child(2),
+    #slide3:checked ~ #controls label:nth-child(3) {
+      background-color: #61dafb;
+    }
+
+    #controls {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    label {
+      flex: 1;
+      padding: 10px;
+      margin: 0 5px;
+      background-color: #ddd;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="radio" name="slide" id="slide1" checked>
+  <input type="radio" name="slide" id="slide2">
+  <input type="radio" name="slide" id="slide3">
+
+  <div id="slider">
+    <div class="slides">
+      <div class="slide" style="background-color: #1abc9c;">Slide 1</div>
+      <div class="slide" style="background-color: #3498db;">Slide 2</div>
+      <div class="slide" style="background-color: #e74c3c;">Slide 3</div>
+    </div>
+  </div>
+
+  <div id="controls">
+    <label for="slide1"></label>
+    <label for="slide2"></label>
+    <label for="slide3"></label>
+  </div>
+</body>
+</html>
